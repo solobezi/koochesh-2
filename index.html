@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="مهاجرت تحصیلی به اروپا با Koochesh Away | مشاوره تخصصی و رایگان برای تحصیل در ایتالیا، فرانسه، هلند و اسپانیا.">
-  <meta name="keywords" content="مهاجرت تحصیلی, مهاجرت به اروپا, تحصیل در ایتالیا, تحصیل در فرانسه, تحصیل در هلند, بورسیه ایتالیا">
   <title>Koochesh Away | مهاجرت تحصیلی</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet"/>
   <style>
@@ -53,13 +51,6 @@
       margin: auto;
       padding: 4rem 2rem;
     }
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
-    }
     footer {
       background: #0c0c0c;
       color: #aaa;
@@ -90,109 +81,95 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
     }
-    button:hover {
-      transform: scale(1.05);
-      background: #c89e2b;
-    }
+    button:hover { transform: scale(1.05); background: #c89e2b; }
   </style>
 </head>
 <body>
+<!-- Header -->
 <div style="background: linear-gradient(to bottom, #1a1a1a, #121212); padding: 2rem 2rem 1.5rem; border-bottom: 2px solid var(--main-gold); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 0 0 20px 20px; text-align: center;">
   <img src="https://i.ibb.co/hx0PmScj/Koochesh-Away-Transparent-1.png" alt="Koochesh Away Logo" style="max-height: 80px; margin-bottom: 1rem;">
   <span style="color: var(--main-gold); font-size: 1.6rem; font-weight: bold;">Koochesh Away | مهاجرت تحصیلی با دید جهانی</span>
 </div>
 
+<!-- Countries Section -->
 <section class="section" id="countries">
   <h2 style="text-align: center; color: var(--main-gold); font-size: 2rem;">کشورهای مقصد مهاجرت</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
-    <div class="card">
+    <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(6px);">
       <h3 style="color: var(--main-gold);">🇮🇹 ایتالیا</h3>
       <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
     </div>
-    <div class="card">
+    <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(6px);">
       <h3 style="color: var(--main-gold);">🇫🇷 فرانسه</h3>
       <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
     </div>
-    <div class="card">
+    <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(6px);">
       <h3 style="color: var(--main-gold);">🇳🇱 هلند</h3>
       <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
     </div>
-    <div class="card">
+    <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(6px);">
       <h3 style="color: var(--main-gold);">🇪🇸 اسپانیا</h3>
       <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
     </div>
   </div>
 </section>
 
+<!-- Hero Section -->
 <section class="hero">
   <h1>مهاجرت تحصیلی به ایتالیا و اروپا</h1>
   <p>با Koochesh Away مسیر مهاجرت تحصیلی خود را مطمئن، سریع و با پشتیبانی کامل آغاز کنید. تخصص ما، آینده شماست.</p>
 </section>
 
+<!-- Contact Form -->
 <section class="section contact" id="contact">
   <h2>فرم درخواست مشاوره رایگان</h2>
   <form>
-    <label for="name">نام شما</label>
+    <label>نام شما</label>
     <input type="text" id="name" placeholder="مثلاً: علی رضایی">
-    <label for="phone">شماره تماس</label>
+    <label>شماره تماس</label>
     <input type="text" id="phone" placeholder="مثلاً: 09123456789">
     <div id="phone-error" style="color:#ff5252; display:none;">❌ شماره تماس معتبر نیست.</div>
-    <label for="message">پیام شما</label>
-    <textarea id="message" rows="4" placeholder="سوال یا درخواست شما..."></textarea>
-    <button type="submit" id="submit-btn">ارسال درخواست</button>
+    <label>پیام شما</label>
+    <textarea rows="4" placeholder="سوال یا درخواست شما..."></textarea>
+    <button type="submit">ارسال درخواست</button>
   </form>
 </section>
-
 <script>
   document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.replace(/\D/g, '');
-    const message = document.getElementById('message').value.trim();
-    const phoneError = document.getElementById('phone-error');
-    const submitBtn = document.getElementById('submit-btn');
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.replace(/\D/g, '');
+  const message = document.querySelector('textarea').value.trim();
+  const phoneError = document.getElementById('phone-error');
 
-    if (!/^09\d{9}$/.test(phone)) {
-      phoneError.style.display = 'block';
-      return;
-    } else {
-      phoneError.style.display = 'none';
-    }
+  if (!/^09\d{9}$/.test(phone)) {
+    phoneError.style.display = 'block';
+    return;
+  } else {
+    phoneError.style.display = 'none';
+  }
 
-    if (!name || !phone || !message) {
-      alert('لطفاً تمام فیلدها را کامل پر کنید');
-      return;
-    }
+  if (!name || !phone || !message) {
+    alert('لطفاً تمام فیلدها را کامل پر کنید');
+    return;
+  }
 
-    submitBtn.disabled = true;
-    submitBtn.innerText = 'در حال ارسال...';
-
-    const formData = new URLSearchParams();
-    formData.append("name", name);
-    formData.append("phone", phone);
-    formData.append("message", message);
-
-    fetch("https://script.google.com/macros/s/AKfycbzzNYzlavggeDoQIk0_5Rm3OmzlHYeQ1U54vZb4cx97fnfYa8cWBAVVRFQ765UkzZ7F8g/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formData.toString()
-    })
-    .then(response => {
-      if (!response.ok) throw new Error();
-      alert("✅ درخواست با موفقیت ارسال شد");
-      document.querySelector('form').reset();
-    })
-    .catch(() => {
-      alert("❌ ارسال با خطا مواجه شد. لطفاً دوباره تلاش کنید یا به آیدی تلگرام ما پیام دهید: @koochesh_admin");
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerText = 'ارسال درخواست';
-    });
+  fetch("https://script.google.com/macros/s/AKfycbzzNYzlavggeDoQIk0_5Rm3OmzlHYeQ1U54vZb4cx97fnfYa8cWBAVVRFQ765UkzZ7F8g/exec", {
+    method: "POST",
+    body: `name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`
+  })
+  .then(response => {
+    if (!response.ok) throw new Error();
+    alert("✅ درخواست با موفقیت ارسال شد");
+    document.querySelector('form').reset();
+  })
+  .catch(() => {
+    alert("❌ ارسال با خطا مواجه شد. لطفاً دوباره تلاش کنید یا به آیدی تلگرام ما پیام دهید: @koochesh_admin");
   });
-</script>
+});
 
+</script>
 <footer>
   <img src="https://i.ibb.co/hx0PmScj/Koochesh-Away-Transparent-1.png" alt="Logo" style="max-height: 40px; margin-bottom: 1rem;">
   <p>تمامی حقوق محفوظ است © 2025</p>
