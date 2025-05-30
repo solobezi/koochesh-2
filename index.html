@@ -152,7 +152,115 @@
   </style>
 </head>
 <body>
-<!-- محتوا بدون تغییر -->
-<!-- فقط ساختارهای تداخلی media query اصلاح شدند -->
+  <header>
+    <img src="https://i.ibb.co/hx0PmScj/Koochesh-Away-Transparent-1.png" alt="لوگو" />
+  </header>
+
+  <section class="hero">
+    <h1>با خیال راحت مهاجرت کن</h1>
+    <p>کوچ آغاز ماجراست ...</p>
+  </section>
+
+  <section class="section" id="countries">
+    <h2>کشورهای مقصد</h2>
+    <div class="country-grid">
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇮🇹 ایتالیا</h3>
+        <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
+      </div>
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇫🇷 فرانسه</h3>
+        <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
+      </div>
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇳🇱 هلند</h3>
+        <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
+      </div>
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇪🇸 اسپانیا</h3>
+        <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>فرم درخواست مشاوره</h2>
+    <form id="form">
+      <input type="text" id="name" name="name" placeholder="نام شما" required />
+      <input type="text" id="phone" name="phone" placeholder="شماره تماس (مثلاً 09123456789)" required />
+      <textarea id="message" name="message" rows="4" placeholder="پیام شما..." required></textarea>
+      <button type="submit" id="submitBtn">ارسال درخواست</button>
+    </form>
+    <div id="status" style="margin-top: 1rem; font-size: 0.95rem; text-align: center;"></div>
+  </section>
+
+  <footer>
+    <div style="max-width: 1100px; margin: auto; padding: 2rem 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: flex-start; gap: 2rem; line-height: 1.8; font-size: 0.95rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: right;">
+        <p style="font-size: 0.95rem; margin: 0;">تمامی حقوق محفوظ است برای Koochesh Away © 2025</p>
+        <p style="font-size: 0.95rem; margin: 0;">شماره تماس: 09391234567</p>
+        <p style="font-size: 0.95rem; margin: 0;">آدرس دفتر: تهران، خیابان ولیعصر</p>
+      </div>
+      <div class="social-icons">
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('status');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (!name || !phone || !message) {
+        status.innerText = "لطفاً تمام فیلدها را با دقت تکمیل کنید.";
+        status.style.color = "orange";
+        return;
+      }
+
+      const phoneRegex = /^09\d{9}$/;
+      if (!phoneRegex.test(phone)) {
+        status.innerText = "شماره تماس واردشده معتبر نیست. لطفاً شماره‌ای وارد کنید که با 09 شروع شده و 11 رقم باشد.";
+        status.style.color = "var(--main-gold)";
+        return;
+      }
+
+      if (!confirm("آیا اطلاعات واردشده صحیح است؟")) return;
+
+      status.innerText = "⏳ در حال ارسال...";
+      status.style.color = "lightblue";
+      submitBtn.disabled = true;
+
+      fetch("https://script.google.com/macros/s/AKfycbyHJ4LKD6zX_uhO-4OiZA8DuTwsPDAmVeBEEkOMESYRtDSr5HlpGkPnW88PxPbZYD1nVQ/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, phone, message })
+      })
+      .then(() => {
+        status.innerText = "✅ پیام شما ارسال شد.";
+        status.style.color = "lightgreen";
+        document.getElementById('form').reset();
+        setTimeout(() => {
+          window.location.href = "https://t.me/koocheshaway";
+        }, 1000);
+      })
+      .catch(() => {
+        status.innerText = "❌ ارسال با خطا مواجه شد. لطفاً مجدداً تلاش کنید.";
+        status.style.color = "red";
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
+    });
+  </script>
 </body>
 </html>
