@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="مهاجرت آسان به ایتالیا، فرانسه، هلند و اسپانیا با کوچش Away. مشاوره تخصصی و رایگان برای شروع یک زندگی جدید." />
   <title>Koochesh Away | مهاجرت</title>
+  <meta name="description" content="مهاجرت آسان، تخصصی و بدون دردسر به اروپا با کوچش. مشاوره رایگان برای تحصیل و زندگی در ایتالیا، فرانسه، هلند و اسپانیا." />
+  <meta name="keywords" content="مهاجرت, کوچش, ایتالیا, هلند, فرانسه, اسپانیا, تحصیل در اروپا, مشاوره مهاجرتی, زندگی در اروپا" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -121,38 +122,7 @@
     .social-icons img {
       height: 28px;
       width: 28px;
-<<<<<<< HEAD
-      max-width: 100%;
-=======
->>>>>>> 50031a2cb8e0f18e6269a284ae6d8a795a0e7062
       object-fit: contain;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.7rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      header img {
-        max-height: 100px;
-      }
-    }
-    @media (max-width: 600px) {
-      footer > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 2rem 1rem;
-        gap: 1.5rem;
-      }
-      .social-icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 16px;
-      }
     }
   </style>
 </head>
@@ -203,68 +173,15 @@
     <div style="max-width: 1100px; margin: auto; padding: 2rem 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: flex-start; gap: 2rem; line-height: 1.8; font-size: 0.95rem;">
       <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: right;">
         <p style="font-size: 0.95rem; margin: 0;">تمامی حقوق محفوظ است برای Koochesh Away © 2025</p>
-        <p style="font-size: 0.95rem; margin: 0;">شماره تماس: 09391234567</p>
+        <p style="font-size: 0.95rem; margin: 0;">شماره تماس: </p>
       </div>
-      <div class="social-icons">
-        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
-        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram"></a>
+      <div style="display: flex; gap: 14px; align-items: center; flex-direction: row; justify-content: center;" class="social-icons">
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
         <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const status = document.getElementById('status');
-      const submitBtn = document.getElementById('submitBtn');
-
-      if (!name || !phone || !message) {
-        status.innerText = "لطفاً تمام فیلدها را با دقت تکمیل کنید.";
-        status.style.color = "orange";
-        return;
-      }
-
-      const phoneRegex = /^09\d{9}$/;
-      if (!phoneRegex.test(phone)) {
-        status.innerText = "شماره تماس واردشده معتبر نیست. لطفاً شماره‌ای وارد کنید که با 09 شروع شده و 11 رقم باشد.";
-        status.style.color = "var(--main-gold)";
-        return;
-      }
-
-      if (!confirm("آیا اطلاعات واردشده صحیح است؟")) return;
-
-      status.innerText = "⏳ در حال ارسال...";
-      status.style.color = "lightblue";
-      submitBtn.disabled = true;
-
-      fetch("https://script.google.com/macros/s/AKfycbyHJ4LKD6zX_uhO-4OiZA8DuTwsPDAmVeBEEkOMESYRtDSr5HlpGkPnW88PxPbZYD1nVQ/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, phone, message })
-      })
-      .then(() => {
-        status.innerText = "✅ پیام شما ارسال شد.";
-        status.style.color = "lightgreen";
-        document.getElementById('form').reset();
-        setTimeout(() => {
-          window.location.href = "https://t.me/koocheshaway";
-        }, 1000);
-      })
-      .catch(() => {
-        status.innerText = "❌ ارسال با خطا مواجه شد. لطفاً مجدداً تلاش کنید.";
-        status.style.color = "red";
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-      });
-    });
-  </script>
 </body>
 </html>
