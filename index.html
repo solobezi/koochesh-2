@@ -27,6 +27,7 @@
     ul {
       padding-left: 1.2rem;
       margin: 0;
+      list-style: disc;
     }
     li {
       margin-bottom: 0.5rem;
@@ -52,7 +53,7 @@
     nav a {
       color: #bbbbbb;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       padding: 0.5rem 0.8rem;
       border-radius: 6px;
       white-space: nowrap;
@@ -455,112 +456,8 @@
     </div>
   </footer>
 
-  <!-- اسکریپت‌های Firebase و JS -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script>
-    // تابع نمایش/مخفی‌سازی جزئیات
-    function toggleDetails(id) {
-      const el = document.getElementById(id);
-      const expanded = el.style.display === "block";
-      el.style.display = expanded ? "none" : "block";
-      const btn = document.querySelector(`[aria-controls="${id}"]`);
-      if (btn) btn.setAttribute("aria-expanded", !expanded);
-    }
-
-    // تنظیمات Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
-      authDomain: "koochesh-b546b.firebaseapp.com",
-      projectId: "koochesh-b546b",
-      storageBucket: "koochesh-b546b.appspot.com",
-      messagingSenderId: "91804302926",
-      appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
-      measurementId: "G-N7R0N1JQVR"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // هندلینگ فرم ورود/ثبت‌نام
-    const loginForm = document.getElementById("loginForm");
-    const loginStatus = document.getElementById("loginStatus");
-    const loginBtn = document.getElementById("loginBtn");
-    loginForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-      loginStatus.textContent = "";
-      loginStatus.className = "form-status";
-      loginBtn.disabled = true;
-      loginBtn.textContent = "در حال پردازش...";
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-      auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
-        return auth.signInWithEmailAndPassword(email, password)
-          .then(() => {
-            loginStatus.textContent = "ورود موفق 👌 در حال انتقال ...";
-            loginStatus.classList.add("success");
-            setTimeout(() => window.location.href = "dashboard.html", 1500);
-          })
-          .catch((error) => {
-            if (error.code === 'auth/user-not-found') {
-              return auth.createUserWithEmailAndPassword(email, password)
-                .then(() => {
-                  loginStatus.textContent = "ثبت‌نام موفق 👌 در حال انتقال ...";
-                  loginStatus.classList.add("success");
-                  setTimeout(() => window.location.href = "dashboard.html", 1500);
-                })
-                .catch(signupError => {
-                  loginStatus.textContent = "❌ " + signupError.message;
-                  loginStatus.classList.add("error");
-                  loginBtn.disabled = false;
-                  loginBtn.textContent = "ورود / ثبت‌نام";
-                });
-            } else {
-              loginStatus.textContent = "❌ " + error.message;
-              loginStatus.classList.add("error");
-              loginBtn.disabled = false;
-              loginBtn.textContent = "ورود / ثبت‌نام";
-            }
-          });
-      });
-    });
-
-    // هندلینگ فرم مشاوره رایگان
-    const contactForm = document.getElementById("contactForm");
-    const statusMessage = document.getElementById("statusMessage");
-    const submitBtn = document.getElementById("submitBtn");
-    contactForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-      statusMessage.textContent = "";
-      statusMessage.className = "form-status";
-      submitBtn.disabled = true;
-      submitBtn.textContent = "در حال ارسال...";
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const phoneRegex = /^09\d{9}$/;
-      if (!name || !phone || !message) {
-        statusMessage.textContent = "لطفاً همه فیلدها را پر کنید.";
-        statusMessage.classList.add("error");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        return;
-      }
-      if (!phoneRegex.test(phone)) {
-        statusMessage.textContent = "شماره تماس را به درستی وارد کنید (مثلاً 09123456789).";
-        statusMessage.classList.add("error");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        return;
-      }
-      // TODO: ارسال به سرور یا firebase
-      setTimeout(() => {
-        statusMessage.textContent = "درخواست شما با موفقیت ارسال شد ✅";
-        statusMessage.classList.add("success");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        contactForm.reset();
-      }, 1500);
-    });
-  </script>
+  <!-- ارجاع به فایل form.js -->
+  <script src="form.js"></script>
 </body>
 </html>
+
