@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koochesh Away | مهاجرت</title>
+  <meta name="description" content="Easy migration to Italy, France, Netherlands, and Spain with free consultation by Koochesh." />
+  <meta name="keywords" content="migration, study in Europe, free consultation, Italy, France, Netherlands, Spain" />
+  <meta name="author" content="Koochesh" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -35,24 +38,27 @@
       color: #d4af37;
     }
     .hero {
-      text-align: center;
-      padding: 4rem 1rem;
+      min-height: 250px;
+      padding: 0 1rem;
       background: linear-gradient(to bottom right, #1a1a1a, #111);
       border-bottom: 1px solid #333;
+      text-align: center;
+      direction: ltr;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-weight: 700;
       color: #d4af37;
-    }
-    .hero p {
-      color: #bbbbbb;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      margin: 0;
     }
     .section {
       padding: 3rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
+      direction: rtl;
     }
     .country-grid {
       display: grid;
@@ -66,10 +72,18 @@
       border-radius: 16px;
       border: 1px solid #2a2a2a;
       transition: transform 0.3s ease;
+      will-change: transform;
+      cursor: pointer;
     }
     .country-box:hover {
       transform: translateY(-4px);
       border-color: #d4af37;
+    }
+    .details {
+      display: none;
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-top: 1rem;
     }
     form {
       display: flex;
@@ -78,12 +92,18 @@
       max-width: 500px;
       margin: 0 auto;
     }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #d4af37;
+    }
     input, textarea {
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #333;
       background-color: #2a2a2a;
       color: #fff;
+      font-size: 1rem;
     }
     button {
       background-color: #d4af37;
@@ -94,15 +114,21 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      font-size: 1rem;
     }
-    button:hover {
+    button:hover:not(:disabled) {
       background-color: #c89e2b;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
     footer {
       background-color: #0f0f0f;
       padding: 3rem 1rem 2rem;
       text-align: center;
       border-top: 1px solid #222;
+      direction: rtl;
     }
     .social-icons {
       margin-top: 1.5rem;
@@ -111,125 +137,145 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
-    .social-icons img {
+    .social-icons a img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       transition: transform 0.3s ease, filter 0.3s ease;
       filter: grayscale(20%) brightness(0.95) contrast(1.05);
     }
-    .social-icons img:hover {
+    .social-icons a img:hover {
       transform: scale(1.1);
       filter: brightness(1.2) contrast(1.2);
     }
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
       .country-grid {
         grid-template-columns: 1fr;
       }
-      .social-icons img {
+      .social-icons a img {
         width: 32px;
         height: 32px;
       }
     }
+    .form-status {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .form-status.error {
+      color: #ff6b6b;
+    }
+    .form-status.success {
+      color: #4caf50;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="koochesh-logo-1" />
+    <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="لوگوی کوچش" />
     <nav>
-      <a href="#countries">کشورها</a>
-      <a href="#contact">مشاوره</a>
-      <a href="#login">ورود</a>
+      <a href="#countries" aria-label="کشورها">کشورها</a>
+      <a href="#contact" aria-label="مشاوره رایگان">مشاوره</a>
+      <a href="#login" aria-label="ورود یا ثبت‌نام">ورود</a>
     </nav>
   </header>
+
   <section class="hero">
-    <h1>با خیال راحت مهاجرت کن</h1>
-    <p>کوچ آغاز ماجراست ...</p>
+    <h1>Your Journey Begins</h1>
   </section>
-  <section class="section" id="countries">
+
+  <section class="section" id="countries" aria-label="کشورهای مقصد">
     <h2>کشورهای مقصد</h2>
     <div class="country-grid">
-      <div class="country-box" onclick="toggleDetails('italy')">
+      <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="italy" onclick="toggleDetails('italy')" onkeypress="if(event.key==='Enter') toggleDetails('italy')">
         <h3><span style="color:#d4af37">IT</span> ایتالیا</h3>
         <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
-        <div id="italy" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">ایتالیا با امکان دریافت بورسیه استانی و هزینه‌های پایین زندگی، یکی از گزینه‌های محبوب برای دانشجویان خارجی است...</div>
+        <div id="italy" class="details">ایتالیا با امکان دریافت بورسیه استانی و هزینه‌های پایین زندگی، یکی از گزینه‌های محبوب برای دانشجویان خارجی است...</div>
       </div>
-      <div class="country-box" onclick="toggleDetails('france')">
+      <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="france" onclick="toggleDetails('france')" onkeypress="if(event.key==='Enter') toggleDetails('france')">
         <h3><span style="color:#d4af37">FR</span> فرانسه</h3>
         <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
-        <div id="france" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">فرانسه با داشتن دانشگاه‌های دولتی با شهریه پایین...</div>
+        <div id="france" class="details">فرانسه با داشتن دانشگاه‌های دولتی با شهریه پایین...</div>
       </div>
-      <div class="country-box" onclick="toggleDetails('netherlands')">
+      <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="netherlands" onclick="toggleDetails('netherlands')" onkeypress="if(event.key==='Enter') toggleDetails('netherlands')">
         <h3><span style="color:#d4af37">NL</span> هلند</h3>
         <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
-        <div id="netherlands" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">هلند یکی از معدود کشورهای اروپایی‌ست که اکثر برنامه‌ها...</div>
+        <div id="netherlands" class="details">هلند یکی از معدود کشورهای اروپایی‌ست که اکثر برنامه‌ها...</div>
       </div>
-      <div class="country-box" onclick="toggleDetails('spain')">
+      <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="spain" onclick="toggleDetails('spain')" onkeypress="if(event.key==='Enter') toggleDetails('spain')">
         <h3><span style="color:#d4af37">ES</span> اسپانیا</h3>
         <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
-        <div id="spain" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">اسپانیا با اقلیم مطلوب، کیفیت زندگی بالا...</div>
+        <div id="spain" class="details">اسپانیا با اقلیم مطلوب، کیفیت زندگی بالا...</div>
       </div>
     </div>
   </section>
+
   <section class="section" id="login" style="max-width: 400px; background-color: #1a1a1a; margin: 2rem auto; padding: 2rem; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
     <h2 style="text-align:center; color:#d4af37; margin-bottom:1.5rem;">ورود یا ثبت‌نام</h2>
-    <form id="loginForm">
-      <input type="email" id="loginEmail" placeholder="ایمیل" required />
-      <input type="password" id="loginPassword" placeholder="رمز عبور" required />
-      <button type="submit">ورود / ثبت‌نام</button>
+    <form id="loginForm" aria-label="فرم ورود یا ثبت‌نام">
+      <label for="loginEmail">ایمیل</label>
+      <input type="email" id="loginEmail" placeholder="ایمیل" required aria-required="true" />
+      <label for="loginPassword">رمز عبور</label>
+      <input type="password" id="loginPassword" placeholder="رمز عبور" required aria-required="true" />
+      <button type="submit" id="loginBtn">ورود / ثبت‌نام</button>
+      <div id="loginStatus" class="form-status" role="alert" aria-live="polite"></div>
     </form>
-    <div id="loginStatus" class="form-status" style="margin-top: 1rem; text-align:center; font-size: 0.9rem; color: #ff6b6b;"></div>
   </section>
-  <section class="section contact" id="contact" style="max-width: 600px; margin: 4rem auto; background-color: #1a1a1a; padding: 2.5rem; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.4);">
+
+  <section class="section contact" id="contact" style="max-width: 600px; margin: 4rem auto; background-color: #1a1a1a; padding: 2.5rem; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.4);" aria-label="فرم درخواست مشاوره رایگان">
     <h2 style="text-align: center; color: #d4af37; margin-bottom: 2.5rem; font-size: 2rem; font-weight: 700;">درخواست مشاوره رایگان</h2>
-    <form id="form" style="display: flex; flex-direction: column; gap: 1.5rem;">
-      <input type="text" id="name" name="name" placeholder="نام کامل شما" required />
-      <input type="tel" id="phone" name="phone" placeholder="شماره تماس (مثلاً 09123456789)" required />
-      <textarea id="message" name="message" rows="4" placeholder="چه کمکی از ما می‌خوای؟" required></textarea>
+    <form id="contactForm" aria-describedby="statusMessage" novalidate>
+      <label for="name">نام کامل شما</label>
+      <input type="text" id="name" name="name" placeholder="نام کامل شما" required aria-required="true" />
+      <label for="phone">شماره تماس (مثلاً 09123456789)</label>
+      <input type="tel" id="phone" name="phone" placeholder="شماره تماس" required aria-required="true" pattern="09[0-9]{9}" />
+      <label for="message">چه کمکی از ما می‌خوای؟</label>
+      <textarea id="message" name="message" rows="4" placeholder="چه کمکی از ما می‌خوای؟" required aria-required="true"></textarea>
       <button type="submit" id="submitBtn">ارسال درخواست</button>
+      <div id="statusMessage" class="form-status" role="alert" aria-live="polite"></div>
     </form>
-    <div id="status" class="form-status" style="margin-top: 1.5rem; text-align:center; font-size: 0.95rem; color: #ff6b6b;"></div>
   </section>
+
   <footer>
     <div class="footer-wrapper">
       <div class="footer-contact">
         <p>تمامی حقوق محفوظ است برای Koochesh Away © 2025</p>
       </div>
-      <div class="social-icons">
-        <a href="https://t.me/koochesh_migration" target="_blank">
+      <div class="social-icons" role="navigation" aria-label="شبکه‌های اجتماعی کوچش">
+        <a href="https://t.me/koochesh_migration" target="_blank" rel="noopener" aria-label="تلگرام کوچش">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
         </a>
-        <a href="https://www.youtube.com/@koochesh" target="_blank">
+        <a href="https://www.youtube.com/@koochesh" target="_blank" rel="noopener" aria-label="یوتیوب کوچش">
           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
         </a>
-        <a href="https://wa.me/989123456789" target="_blank">
+        <a href="https://wa.me/989123456789" target="_blank" rel="noopener" aria-label="واتس‌اپ کوچش">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
         </a>
-        <a href="https://instagram.com/koochesh" target="_blank">
+        <a href="https://instagram.com/koochesh" target="_blank" rel="noopener" aria-label="اینستاگرام کوچش">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" />
         </a>
       </div>
     </div>
   </footer>
+
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script>
     function toggleDetails(id) {
       const el = document.getElementById(id);
-      el.style.display = el.style.display === "none" ? "block" : "none";
+      const expanded = el.style.display === "block";
+      el.style.display = expanded ? "none" : "block";
+
+      const btn = document.querySelector(`[aria-controls="${id}"]`);
+      if (btn) btn.setAttribute("aria-expanded", !expanded);
     }
 
     const firebaseConfig = {
       apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
       authDomain: "koochesh-b546b.firebaseapp.com",
       projectId: "koochesh-b546b",
-      storageBucket: "koochesh-b546b.firebasestorage.app",
+      storageBucket: "koochesh-b546b.appspot.com",
       messagingSenderId: "91804302926",
       appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
       measurementId: "G-N7R0N1JQVR"
@@ -238,36 +284,91 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginForm.addEventListener("submit", function(e) {
       e.preventDefault();
+      loginStatus.textContent = "";
+      loginStatus.className = "form-status";
+      loginBtn.disabled = true;
+      loginBtn.textContent = "در حال پردازش...";
+
       const email = document.getElementById("loginEmail").value;
       const password = document.getElementById("loginPassword").value;
 
-      auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          document.getElementById("loginStatus").innerText = "ورود موفق 👌 در حال انتقال ...";
-          setTimeout(() => {
-            window.location.href = "dashboard.html";
-          }, 1500);
-        })
-        .catch((error) => {
-          if (error.code === 'auth/user-not-found') {
-            auth.createUserWithEmailAndPassword(email, password)
-              .then((userCredential) => {
-                document.getElementById("loginStatus").innerText = "ثبت‌نام موفق 👌 در حال انتقال ...";
-                setTimeout(() => {
-                  window.location.href = "dashboard.html";
-                }, 1500);
-              })
-              .catch((signupError) => {
-                document.getElementById("loginStatus").innerText = "❌ " + signupError.message;
-              });
-          } else {
-            document.getElementById("loginStatus").innerText = "❌ " + error.message;
-          }
-        });
+      auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+        return auth.signInWithEmailAndPassword(email, password)
+          .then(() => {
+            loginStatus.textContent = "ورود موفق 👌 در حال انتقال ...";
+            loginStatus.classList.add("success");
+            setTimeout(() => window.location.href = "dashboard.html", 1500);
+          })
+          .catch((error) => {
+            if (error.code === 'auth/user-not-found') {
+              return auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                  loginStatus.textContent = "ثبت‌نام موفق 👌 در حال انتقال ...";
+                  loginStatus.classList.add("success");
+                  setTimeout(() => window.location.href = "dashboard.html", 1500);
+                })
+                .catch(signupError => {
+                  loginStatus.textContent = "❌ " + signupError.message;
+                  loginStatus.classList.add("error");
+                  loginBtn.disabled = false;
+                  loginBtn.textContent = "ورود / ثبت‌نام";
+                });
+            } else {
+              loginStatus.textContent = "❌ " + error.message;
+              loginStatus.classList.add("error");
+              loginBtn.disabled = false;
+              loginBtn.textContent = "ورود / ثبت‌نام";
+            }
+          });
+      });
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    const statusMessage = document.getElementById("statusMessage");
+    const submitBtn = document.getElementById("submitBtn");
+
+    contactForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      statusMessage.textContent = "";
+      statusMessage.className = "form-status";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "در حال ارسال...";
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const phoneRegex = /^09\d{9}$/;
+      if (!name || !phone || !message) {
+        statusMessage.textContent = "لطفاً همه فیلدها را پر کنید.";
+        statusMessage.classList.add("error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "ارسال درخواست";
+        return;
+      }
+      if (!phoneRegex.test(phone)) {
+        statusMessage.textContent = "شماره تماس را به درستی وارد کنید (مثلاً 09123456789).";
+        statusMessage.classList.add("error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "ارسال درخواست";
+        return;
+      }
+
+      // TODO: ارسال به سرور یا firebase
+      setTimeout(() => {
+        statusMessage.textContent = "درخواست شما با موفقیت ارسال شد ✅";
+        statusMessage.classList.add("success");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "ارسال درخواست";
+        contactForm.reset();
+      }, 1500);
     });
   </script>
-  <script src="form.js"></script>
 </body>
 </html>
