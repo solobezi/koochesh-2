@@ -84,6 +84,7 @@
       font-size: 0.9rem;
       color: #bbb;
       margin-top: 1rem;
+      line-height: 1.6;
     }
     form {
       display: flex;
@@ -172,6 +173,7 @@
 </head>
 <body>
 
+  <!-- هدر اصلی -->
   <header>
     <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="لوگوی کوچش" />
     <nav>
@@ -181,36 +183,78 @@
     </nav>
   </header>
 
+  <!-- بخش hero با متن انگلیسی -->
   <section class="hero">
     <h1>Your Journey Begins</h1>
   </section>
 
+  <!-- بخش کشورهای مقصد با جزئیات به‌روز -->
   <section class="section" id="countries" aria-label="کشورهای مقصد">
     <h2>کشورهای مقصد</h2>
     <div class="country-grid">
+      <!-- ایتالیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="italy" onclick="toggleDetails('italy')" onkeypress="if(event.key==='Enter') toggleDetails('italy')">
         <h3><span style="color:#d4af37">IT</span> ایتالیا</h3>
-        <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
-        <div id="italy" class="details">ایتالیا با امکان دریافت بورسیه استانی و هزینه‌های پایین زندگی، یکی از گزینه‌های محبوب برای دانشجویان خارجی است...</div>
+        <p>شهریهٔ پایین، بورسیهٔ استانی، زندگی مقرون‌به‌صرفه.</p>
+        <div id="italy" class="details">
+          <ul>
+            <li>دانشگاه‌های دولتی: شهریهٔ سالانه حدود ۲۰۰–۳۰۰ یورو (برای دانشجویان اتحادیهٔ اروپا؛ خارجی‌ها تا ۱۰۰۰ یورو).</li>
+            <li>بورسیه‌های منطقه‌ای (بورسیهٔ استانی) برای دانشجویان ممتاز خارجی تا پوشش کامل هزینه‌ها.</li>
+            <li>هزینهٔ زندگی در شهرهای متوسط: حدود ۶۰۰–۸۰۰ یورو در ماه.</li>
+            <li>بسیاری از دوره‌ها به زبان ایتالیایی هستند؛ اما در بعضی دانشگاه‌ها می‌توان رشته‌های انگلیسی‌زبان هم پیدا کرد (به‌ویژه مقطع کارشناسی ارشد).</li>
+            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته با دستمزد ساعتی بین ۷–۹ یورو.</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- فرانسه -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="france" onclick="toggleDetails('france')" onkeypress="if(event.key==='Enter') toggleDetails('france')">
         <h3><span style="color:#d4af37">FR</span> فرانسه</h3>
-        <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
-        <div id="france" class="details">فرانسه با داشتن دانشگاه‌های دولتی با شهریه پایین...</div>
+        <p>شهریهٔ دولتی کم، کیفیت آموزشی بالا، کار دانشجویی.</p>
+        <div id="france" class="details">
+          <ul>
+            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۲۷۰ یورو در سال (برای مقطع کارشناسی؛ ارشد و دکترا کمی بیشتر).</li>
+            <li>بورسیهٔ Eiffel برای مقطع ارشد و دکترا (تا ۱۲۰۰ یورو ماهانه).</li>
+            <li>هزینهٔ زندگی در شهرهای بزرگ (مثلاً پاریس): ۹۰۰–۱۱۰۰ یورو در ماه؛ در شهرهای کوچک‌تر حدود ۷۰۰–۸۰۰ یورو.</li>
+            <li>بیشتر دوره‌ها به زبان فرانسوی هستند؛ اما بیش از ۴۰۰ برنامهٔ انگلیسی‌زبان در مقاطع ارشد و دکترا وجود دارد.</li>
+            <li>امکان کار پاره‌وقت تا ۲۰ ساعت در هفته؛ حقوق ساعتی حدود ۱۰–۱۲ یورو.</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- هلند -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="netherlands" onclick="toggleDetails('netherlands')" onkeypress="if(event.key==='Enter') toggleDetails('netherlands')">
         <h3><span style="color:#d4af37">NL</span> هلند</h3>
-        <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
-        <div id="netherlands" class="details">هلند یکی از معدود کشورهای اروپایی‌ست که اکثر برنامه‌ها...</div>
+        <p>برنامه‌های انگلیسی‌زبان، بازار کار قوی، مهاجرپذیر.</p>
+        <div id="netherlands" class="details">
+          <ul>
+            <li>شهریهٔ مقطع کارشناسی (بین‌المللی): حدود ۶۰۰۰–۱۰,۰۰۰ یورو در سال؛ کارشناسی ارشد: ۸۰۰۰–۱۵,۰۰۰ یورو.</li>
+            <li>بیش از ۲۵۰۰ برنامهٔ انگلیسی‌زبان در تمامی مقاطع.</li>
+            <li>هزینهٔ زندگی در شهرهای بزرگ (آمستردام/روتردام): ۹۰۰–۱۲۰۰ یورو در ماه؛ در شهرهای متوسط: ۷۰۰–۹۰۰ یورو.</li>
+            <li>با فارغ‌التحصیلی از دانشگاه، ویزای کاری ۱۲ ماهه دریافت می‌شود تا بتوانید در هلند شغل مناسب پیدا کنید.</li>
+            <li>امکان کار دانشجویی تا ۱۶–۱۸ ساعت در هفته؛ حقوق ساعتی حدود ۱۰–۱۱ یورو.</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- اسپانیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="spain" onclick="toggleDetails('spain')" onkeypress="if(event.key==='Enter') toggleDetails('spain')">
         <h3><span style="color:#d4af37">ES</span> اسپانیا</h3>
-        <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
-        <div id="spain" class="details">اسپانیا با اقلیم مطلوب، کیفیت زندگی بالا...</div>
+        <p>شهریهٔ پایین، زندگی باکیفیت، بورس‌های Erasmus +.</p>
+        <div id="spain" class="details">
+          <ul>
+            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۱۲۰۰–۱۵۰۰ یورو در سال برای مقطع کارشناسی؛ کارشناسی ارشد: ۱۵۰۰–۲۰۰۰ یورو.</li>
+            <li>امکان شرکت در برنامهٔ Erasmus + برای کاهش هزینهٔ تحصیل و زندگی.</li>
+            <li>هزینهٔ زندگی در شهرهای بزرگ (مادرید/بارسلونا): ۸۰۰–۹۰۰ یورو در ماه؛ در شهرهای متوسط/کوچک: ۶۰۰–۷۰۰ یورو.</li>
+            <li>بیشتر دوره‌ها به زبان اسپانیایی هستند؛ اما حدود ۱۵۰ برنامهٔ انگلیسی‌زبان در مقطع ارشد وجود دارد.</li>
+            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته؛ حقوق ساعتی حدود ۷–۸ یورو.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- بخش ورود/ثبت‌نام -->
   <section class="section" id="login" style="max-width: 400px; background-color: #1a1a1a; margin: 2rem auto; padding: 2rem; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
     <h2 style="text-align:center; color:#d4af37; margin-bottom:1.5rem;">ورود یا ثبت‌نام</h2>
     <form id="loginForm" aria-label="فرم ورود یا ثبت‌نام">
@@ -223,6 +267,7 @@
     </form>
   </section>
 
+  <!-- بخش فرم مشاوره رایگان -->
   <section class="section contact" id="contact" style="max-width: 600px; margin: 4rem auto; background-color: #1a1a1a; padding: 2.5rem; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.4);" aria-label="فرم درخواست مشاوره رایگان">
     <h2 style="text-align: center; color: #d4af37; margin-bottom: 2.5rem; font-size: 2rem; font-weight: 700;">درخواست مشاوره رایگان</h2>
     <form id="contactForm" aria-describedby="statusMessage" novalidate>
@@ -237,6 +282,7 @@
     </form>
   </section>
 
+  <!-- فوتر -->
   <footer>
     <div class="footer-wrapper">
       <div class="footer-contact">
@@ -259,9 +305,11 @@
     </div>
   </footer>
 
+  <!-- اسکریپت‌های firebase و JS -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script>
+    // نمایش/مخفی‌سازی جزئیات هر کشور
     function toggleDetails(id) {
       const el = document.getElementById(id);
       const expanded = el.style.display === "block";
@@ -271,6 +319,7 @@
       if (btn) btn.setAttribute("aria-expanded", !expanded);
     }
 
+    // تنظیمات Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
       authDomain: "koochesh-b546b.firebaseapp.com",
@@ -284,6 +333,7 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
+    // هندلینگ فرم ورود/ثبت‌نام
     const loginForm = document.getElementById("loginForm");
     const loginStatus = document.getElementById("loginStatus");
     const loginBtn = document.getElementById("loginBtn");
@@ -329,6 +379,7 @@
       });
     });
 
+    // هندلینگ فرم مشاوره رایگان
     const contactForm = document.getElementById("contactForm");
     const statusMessage = document.getElementById("statusMessage");
     const submitBtn = document.getElementById("submitBtn");
