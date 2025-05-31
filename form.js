@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone = phoneInput.value.trim();
     const message = messageInput.value.trim();
 
-    // اعتبارسنجی
+    // Validation
     if (!name || !phone || !message) {
       showStatus("لطفاً تمام فیلدها را با دقت تکمیل کنید.", "warning");
       return;
@@ -30,17 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbyHJ4LKD6zX_uhO-4OiZA8DuTwsPDAmVeBEEkOMESYRtDSr5HlpGkPnW88PxPbZYD1nVQ/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ name, phone, message })
-        }
-      );
+      await fetch("https://script.google.com/macros/s/AKfycbyHJ4LKD6zX_uhO-4OiZA8DuTwsPDAmVeBEEkOMESYRtDSr5HlpGkPnW88PxPbZYD1nVQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, phone, message })
+      });
 
       showStatus("✅ پیام شما ارسال شد.", "success");
       form.reset();
