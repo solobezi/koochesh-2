@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ورود | Koochesh Away</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 320px;
+      text-align: center;
+    }
+    .login-container h2 {
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .login-container input {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .login-container button {
+      background-color: #d4af37;
+      color: #0f0f0f;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+    .login-container button:hover {
+      background-color: #c89e2b;
+    }
+    .form-status {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #ff6b6b;
+    }
+    .post-login {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .post-login a {
+      display: block;
+      padding: 0.6rem;
+      background-color: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+    .post-login a:hover {
+      background-color: #3a3a3a;
+    }
+    @media (max-width: 400px) {
+      .login-container {
+        width: 90%;
+        padding: 1.5rem;
+      }
+      .login-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>ورود به حساب کاربری</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="ایمیل" required />
+      <input type="password" id="loginPassword" placeholder="رمز عبور" required />
+      <button type="submit">ورود</button>
+      <div id="loginStatus" class="form-status"></div>
+    </form>
+    <!-- بعد از ورود موفق، لینک‌های داشبورد و تیکت نمایش داده می‌شوند -->
+    <div id="postLogin" class="post-login" style="display:none;">
+      <a href="dashboard.html">رفتن به داشبورد</a>
+      <a href="ticket.html">ثبت درخواست تیکت</a>
+    </div>
+  </div>
+
+  <!-- اگر از Firebase Auth استفاده می‌کنید -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
+      authDomain: "koochesh-b546b.firebaseapp.com",
+      projectId: "koochesh-b546b",
+      storageBucket: "koochesh-b546b.firebasestorage.app",
+      messagingSenderId: "91804302926",
+      appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
+      measurementId: "G-N7R0N1JQVR"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          document.getElementById("loginStatus").innerText = "ورود موفق 👌";
+          // نمایش لینک‌های داشبورد و تیکت
+          document.getElementById("postLogin").style.display = "block";
+        })
+        .catch((error) => {
+          document.getElementById("loginStatus").innerText = "❌ " + error.message;
+        });
+    });
+  </script>
+</body>
+</html>
