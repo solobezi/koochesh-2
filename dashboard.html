@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>داشبورد | Koochesh Away</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+    header img {
+      max-width: 140px;
+      height: auto;
+    }
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #bbbbbb;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #d4af37;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .welcome {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .welcome h1 {
+      font-size: 2.2rem;
+      color: #d4af37;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .actions a {
+      background-color: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .actions a:hover {
+      background-color: #3a3a3a;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #1a1a1a;
+      border-top: 1px solid #333;
+      margin-top: 4rem;
+    }
+    footer p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .welcome h1 {
+        font-size: 1.8rem;
+      }
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .actions a {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="koochesh-logo" />
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="dashboard.html">داشبورد</a>
+      <a href="ticket.html">تیکت‌ها</a>
+      <a href="logout.html">خروج</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <section class="welcome">
+      <h1>خوش آمدید!</h1>
+      <p>در این صفحه می‌توانید درخواست‌ها و تیکت‌های خود را مدیریت کنید.</p>
+    </section>
+
+    <section class="actions">
+      <a href="ticket.html">ثبت تیکت جدید</a>
+      <a href="my-tickets.html">لیست تیکت‌های من</a>
+      <a href="profile.html">ویرایش پروفایل</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Koochesh Away. تمامی حقوق محفوظ است.</p>
+  </footer>
+</body>
+</html>
