@@ -381,7 +381,7 @@
             <li>شهریهٔ کارشناسی (بین‌المللی): ۶۰۰۰–۱۰,۰۰۰ یورو؛ ارشد: ۸۰۰۰–۱۵,۰۰۰ یورو.</li>
             <li>بیش از ۲۵۰۰ برنامهٔ انگلیسی‌زبان در همه مقاطع.</li>
             <li>هزینهٔ زندگی در آمستردام/روتردام: ۹۰۰–۱۲۰۰ یورو؛ شهرهای متوسط: ۷۰۰–۹۰۰ یورو.</li>
-            <li>ویزای کاری ۱۲ ماهه پس از فارغ‌التحصیلی برای یافتن شغل.</li>
+            <li>ویزای کاری ۱۲ ماه پس از فارغ‌التحصیلی برای یافتن شغل.</li>
             <li>کار دانشجویی ۱۶–۱۸ ساعت در هفته؛ حقوق ۱۰–۱۱ یورو ساعتی.</li>
           </ul>
         </div>
@@ -455,11 +455,11 @@
     </div>
   </footer>
 
-  <!-- اسکریپت‌های Firebase و JS -->
+  <!-- اسکریپت‌های Firebase و JS مربوط به لاگین و نمایش جزئیات -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script>
-    // تابع نمایش/مخفی‌سازی جزئیات
+    // تابع نمایش/مخفی‌سازی جزئیات (کشورها)
     function toggleDetails(id) {
       const el = document.getElementById(id);
       const expanded = el.style.display === "block";
@@ -468,7 +468,7 @@
       if (btn) btn.setAttribute("aria-expanded", !expanded);
     }
 
-    // تنظیمات Firebase
+    // تنظیمات Firebase برای فرم ورود/ثبت‌نام
     const firebaseConfig = {
       apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
       authDomain: "koochesh-b546b.firebaseapp.com",
@@ -523,44 +523,9 @@
           });
       });
     });
-
-    // هندلینگ فرم مشاوره رایگان
-    const contactForm = document.getElementById("contactForm");
-    const statusMessage = document.getElementById("statusMessage");
-    const submitBtn = document.getElementById("submitBtn");
-    contactForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-      statusMessage.textContent = "";
-      statusMessage.className = "form-status";
-      submitBtn.disabled = true;
-      submitBtn.textContent = "در حال ارسال...";
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const phoneRegex = /^09\d{9}$/;
-      if (!name || !phone || !message) {
-        statusMessage.textContent = "لطفاً همه فیلدها را پر کنید.";
-        statusMessage.classList.add("error");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        return;
-      }
-      if (!phoneRegex.test(phone)) {
-        statusMessage.textContent = "شماره تماس را به درستی وارد کنید (مثلاً 09123456789).";
-        statusMessage.classList.add("error");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        return;
-      }
-      // TODO: ارسال به سرور یا firebase
-      setTimeout(() => {
-        statusMessage.textContent = "درخواست شما با موفقیت ارسال شد ✅";
-        statusMessage.classList.add("success");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ارسال درخواست";
-        contactForm.reset();
-      }, 1500);
-    });
   </script>
+
+  <!-- بارگذاری فایل خارجی form.js -->
+  <script src="form.js"></script>
 </body>
 </html>
