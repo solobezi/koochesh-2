@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خروج | Koochesh Away</title>
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script>
+    // پیکربندی Firebase (همان config صفحهٔ ورود)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
+      authDomain: "koochesh-b546b.firebaseapp.com",
+      projectId: "koochesh-b546b",
+      storageBucket: "koochesh-b546b.firebasestorage.app",
+      messagingSenderId: "91804302926",
+      appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
+      measurementId: "G-N7R0N1JQVR"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    auth.signOut().then(() => {
+      // بعد از خروج، به صفحهٔ اصلی برگردانده شود
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
