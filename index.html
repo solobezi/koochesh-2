@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koochesh Away | مهاجرت</title>
-  <meta name="description" content="Easy migration to Italy, France, Netherlands, and Spain with free consultation by Koochesh." />
-  <meta name="keywords" content="migration, study in Europe, free consultation, Italy, France, Netherlands, Spain" />
-  <meta name="author" content="Koochesh" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
-    /* ======== تنظیمات کلی ======== */
-    * {
-      box-sizing: border-box;
+    /* ======== روان‌سازی اسکرول برای لینک‌های داخلی ======== */
+    html {
+      scroll-behavior: smooth;
     }
+
+    /* ======== تنظیمات کلی ======== */
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
@@ -35,12 +34,15 @@
 
     /* ======== هدر ======== */
     header {
+      position: sticky;
+      top: 0;
+      background-color: #0f0f0f;
+      border-bottom: 1px solid #222;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: #0f0f0f;
-      border-bottom: 1px solid #222;
+      z-index: 10;
     }
     header img {
       max-width: 160px;
@@ -53,9 +55,9 @@
     nav a {
       color: #bbbbbb;
       font-weight: 500;
-      transition: background-color 0.3s ease, color 0.3s ease;
       padding: 0.5rem 0.8rem;
       border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
       white-space: nowrap;
     }
     nav a:hover {
@@ -141,7 +143,7 @@
       display: block;
     }
 
-    /* ======== بخش ورود / ثبت‌نام و فرم مشاوره ======== */
+    /* ======== بخش ورود / ثبت‌نام ======== */
     .form-container {
       background-color: #1a1a1a;
       margin: 2rem auto;
@@ -226,14 +228,14 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
-    .social-icons a img {
+    .social-icons img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       transition: transform 0.3s ease, filter 0.3s ease;
       filter: grayscale(20%) brightness(0.95) contrast(1.05);
     }
-    .social-icons a img:hover {
+    .social-icons img:hover {
       transform: scale(1.1);
       filter: brightness(1.2) contrast(1.2);
     }
@@ -315,7 +317,7 @@
       }
 
       /* فوتر موبایل: آیکن‌ها کوچکتر */
-      .social-icons a img {
+      .social-icons img {
         width: 32px;
         height: 32px;
       }
@@ -323,7 +325,6 @@
   </style>
 </head>
 <body>
-
   <!-- هدر اصلی -->
   <header>
     <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="لوگوی کوچش" />
@@ -334,71 +335,49 @@
     </nav>
   </header>
 
-  <!-- بخش Hero با متن انگلیسی -->
+  <!-- بخش Hero با متن فارسی -->
   <section class="hero">
-    <h1>Your Journey Begins</h1>
+    <h1>با خیال راحت مهاجرت کن</h1>
+    <p>کوچ آغاز ماجراست ...</p>
   </section>
 
-  <!-- بخش کشورهای مقصد با جزئیات به‌روز -->
+  <!-- بخش کشورهای مقصد -->
   <section class="section" id="countries" aria-label="کشورهای مقصد">
     <h2>کشورهای مقصد</h2>
     <div class="country-grid">
-      <!-- ایتالیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="italy" onclick="toggleDetails('italy')" onkeypress="if(event.key==='Enter') toggleDetails('italy')">
         <h3><span>IT</span> ایتالیا</h3>
-        <p>شهریهٔ پایین، بورسیهٔ استانی، زندگی مقرون‌به‌صرفه.</p>
+        <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
         <div id="italy" class="details">
           <ul>
-            <li>دانشگاه‌های دولتی: شهریهٔ سالانه حدود ۲۰۰–۳۰۰ یورو (برای دانشجویان اتحادیهٔ اروپا؛ خارجی‌ها تا ۱۰۰۰ یورو).</li>
-            <li>بورسیه‌های منطقه‌ای (بورسیهٔ استانی) برای دانشجویان ممتاز خارجی تا پوشش کامل هزینه‌ها.</li>
-            <li>هزینهٔ زندگی در شهرهای متوسط: حدود ۶۰۰–۸۰۰ یورو در ماه.</li>
-            <li>دوره‌های انگلیسی‌زبان محدود و عمدتاً در مقطع ارشد.</li>
-            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته با دستمزد ۷–۹ یورو.</li>
+            <li>ایتالیا با امکان دریافت بورسیه استانی و هزینه‌های پایین زندگی، یکی از گزینه‌های محبوب برای دانشجویان خارجی است...</li>
           </ul>
         </div>
       </div>
-
-      <!-- فرانسه -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="france" onclick="toggleDetails('france')" onkeypress="if(event.key==='Enter') toggleDetails('france')">
         <h3><span>FR</span> فرانسه</h3>
-        <p>شهریهٔ دولتی کم، کیفیت آموزشی بالا، کار دانشجویی.</p>
+        <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
         <div id="france" class="details">
           <ul>
-            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۲۷۰ یورو در سال (کارشناسی؛ ارشد و دکترا کمی بیشتر).</li>
-            <li>بورسیهٔ Eiffel برای ارشد و دکترا (تا ۱۲۰۰ یورو ماهانه).</li>
-            <li>هزینهٔ زندگی در پاریس: ۹۰۰–۱۱۰۰ یورو؛ شهرهای کوچک‌تر: ۷۰۰–۸۰۰ یورو.</li>
-            <li>برنامه‌های انگلیسی‌زبان بیشتر در مقاطع ارشد و دکترا (بیش از ۴۰۰ برنامه).</li>
-            <li>امکان کار پاره‌وقت ۲۰ ساعت در هفته؛ حقوق ۱۰–۱۲ یورو ساعتی.</li>
+            <li>فرانسه با داشتن دانشگاه‌های دولتی با شهریه پایین...</li>
           </ul>
         </div>
       </div>
-
-      <!-- هلند -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="netherlands" onclick="toggleDetails('netherlands')" onkeypress="if(event.key==='Enter') toggleDetails('netherlands')">
         <h3><span>NL</span> هلند</h3>
-        <p>برنامه‌های انگلیسی‌زبان، بازار کار قوی، مهاجرپذیر.</p>
+        <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
         <div id="netherlands" class="details">
           <ul>
-            <li>شهریهٔ کارشناسی (بین‌المللی): ۶۰۰۰–۱۰,۰۰۰ یورو؛ ارشد: ۸۰۰۰–۱۵,۰۰۰ یورو.</li>
-            <li>بیش از ۲۵۰۰ برنامهٔ انگلیسی‌زبان در همه مقاطع.</li>
-            <li>هزینهٔ زندگی در آمستردام/روتردام: ۹۰۰–۱۲۰۰ یورو؛ شهرهای متوسط: ۷۰۰–۹۰۰ یورو.</li>
-            <li>ویزای کاری ۱۲ ماهه پس از فارغ‌التحصیلی برای یافتن شغل.</li>
-            <li>کار دانشجویی ۱۶–۱۸ ساعت در هفته؛ حقوق ۱۰–۱۱ یورو ساعتی.</li>
+            <li>هلند یکی از معدود کشورهای اروپایی‌ست که اکثر برنامه‌ها...</li>
           </ul>
         </div>
       </div>
-
-      <!-- اسپانیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="spain" onclick="toggleDetails('spain')" onkeypress="if(event.key==='Enter') toggleDetails('spain')">
         <h3><span>ES</span> اسپانیا</h3>
-        <p>شهریهٔ پایین، زندگی باکیفیت، بورس‌های Erasmus +.</p>
+        <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
         <div id="spain" class="details">
           <ul>
-            <li>شهریهٔ دولتی: کارشناسی ۱۲۰۰–۱۵۰۰ یورو؛ ارشد: ۱۵۰۰–۲۰۰۰ یورو.</li>
-            <li>شرکت در Erasmus + برای کاهش هزینهٔ تحصیل و زندگی.</li>
-            <li>هزینهٔ زندگی در مادرید/بارسلونا: ۸۰۰–۹۰۰ یورو؛ شهرهای متوسط/کوچک: ۶۰۰–۷۰۰ یورو.</li>
-            <li>دوره‌های انگلیسی‌زبان محدود در ارشد (حدود ۱۵۰ برنامه).</li>
-            <li>کار دانشجویی ۲۰ ساعت در هفته؛ حقوق ۷–۸ یورو ساعتی.</li>
+            <li>اسپانیا با اقلیم مطلوب، کیفیت زندگی بالا...</li>
           </ul>
         </div>
       </div>
@@ -421,7 +400,7 @@
   <!-- بخش فرم مشاوره رایگان -->
   <section class="form-container contact" id="contact" aria-label="فرم درخواست مشاوره رایگان">
     <h2>درخواست مشاوره رایگان</h2>
-    <form id="contactForm" aria-describedby="statusMessage" novalidate>
+    <form id="form" aria-describedby="status" novalidate>
       <label for="name">نام کامل شما</label>
       <input type="text" id="name" name="name" placeholder="نام کامل شما" required aria-required="true" />
       <label for="phone">شماره تماس (مثلاً 09123456789)</label>
@@ -429,8 +408,8 @@
       <label for="message">چه کمکی از ما می‌خوای؟</label>
       <textarea id="message" name="message" rows="4" placeholder="چه کمکی از ما می‌خوای؟" required aria-required="true"></textarea>
       <button type="submit" id="submitBtn">ارسال درخواست</button>
-      <div id="statusMessage" class="form-status" role="alert" aria-live="polite"></div>
     </form>
+    <div id="status" class="form-status" role="alert" aria-live="polite"></div>
   </section>
 
   <!-- فوتر -->
@@ -439,25 +418,98 @@
       <div class="footer-contact">
         <p>تمامی حقوق محفوظ است برای Koochesh Away © 2025</p>
       </div>
-      <div class="social-icons" role="navigation" aria-label="شبکه‌های اجتماعی کوچش">
-        <a href="https://t.me/koochesh_migration" target="_blank" rel="noopener" aria-label="تلگرام کوچش">
+      <div class="social-icons">
+        <a href="https://t.me/koochesh_migration" target="_blank" rel="noopener">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
         </a>
-        <a href="https://www.youtube.com/@koochesh" target="_blank" rel="noopener" aria-label="یوتیوب کوچش">
+        <a href="https://www.youtube.com/@koochesh" target="_blank" rel="noopener">
           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
         </a>
-        <a href="https://wa.me/989123456789" target="_blank" rel="noopener" aria-label="واتس‌اپ کوچش">
+        <a href="https://wa.me/989123456789" target="_blank" rel="noopener">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
         </a>
-        <a href="https://instagram.com/koochesh" target="_blank" rel="noopener" aria-label="اینستاگرام کوچش">
+        <a href="https://instagram.com/koochesh" target="_blank" rel="noopener">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" />
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- ارجاع به فایل form.js -->
+  <!-- کتابخانه‌های Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <!-- اسکریپت داخلی هدر و فرم ورود -->
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      const expanded = el.style.display === "block";
+      el.style.display = expanded ? "none" : "block";
+
+      const btn = document.querySelector(`[aria-controls="${id}"]`);
+      if (btn) btn.setAttribute("aria-expanded", !expanded);
+    }
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
+      authDomain: "koochesh-b546b.firebaseapp.com",
+      projectId: "koochesh-b546b",
+      storageBucket: "koochesh-b546b.firebasestorage.app",
+      messagingSenderId: "91804302926",
+      appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
+      measurementId: "G-N7R0N1JQVR"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const loginStatus = document.getElementById("loginStatus");
+      const loginBtn = document.getElementById("loginBtn");
+
+      loginStatus.textContent = "";
+      loginStatus.className = "form-status";
+      loginBtn.disabled = true;
+      loginBtn.textContent = "در حال پردازش...";
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          loginStatus.textContent = "ورود موفق 👌 در حال انتقال ...";
+          loginStatus.classList.add("success");
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 1500);
+        })
+        .catch(error => {
+          if (error.code === 'auth/user-not-found') {
+            auth.createUserWithEmailAndPassword(email, password)
+              .then(() => {
+                loginStatus.textContent = "ثبت‌نام موفق 👌 در حال انتقال ...";
+                loginStatus.classList.add("success");
+                setTimeout(() => {
+                  window.location.href = "dashboard.html";
+                }, 1500);
+              })
+              .catch(signupError => {
+                loginStatus.textContent = "❌ " + signupError.message;
+                loginStatus.classList.add("error");
+                loginBtn.disabled = false;
+                loginBtn.textContent = "ورود / ثبت‌نام";
+              });
+          } else {
+            loginStatus.textContent = "❌ " + error.message;
+            loginStatus.classList.add("error");
+            loginBtn.disabled = false;
+            loginBtn.textContent = "ورود / ثبت‌نام";
+          }
+        });
+    });
+  </script>
+
+  <!-- ارجاع به فایل جداگانه form.js -->
   <script src="form.js"></script>
 </body>
 </html>
-
