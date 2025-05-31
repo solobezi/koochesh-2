@@ -9,12 +9,30 @@
   <meta name="author" content="Koochesh" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
+    /* ======== تنظیمات کلی ======== */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
       background-color: #0f0f0f;
       color: #f1f1f1;
+      line-height: 1.5;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ======== هدر ======== */
     header {
       display: flex;
       justify-content: space-between;
@@ -27,19 +45,27 @@
       max-width: 160px;
       height: auto;
     }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
     nav a {
-      margin-left: 1rem;
-      text-decoration: none;
       color: #bbbbbb;
       font-weight: 500;
       transition: color 0.3s ease;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      white-space: nowrap;
     }
     nav a:hover {
-      color: #d4af37;
+      color: #0f0f0f;
+      background-color: #d4af37;
     }
+
+    /* ======== بخش Hero ======== */
     .hero {
-      min-height: 250px;
-      padding: 0 1rem;
+      min-height: 200px;
+      padding: 1rem;
       background: linear-gradient(to bottom right, #1a1a1a, #111);
       border-bottom: 1px solid #333;
       text-align: center;
@@ -49,73 +75,121 @@
       align-items: center;
     }
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 700;
       color: #d4af37;
       margin: 0;
     }
+
+    /* ======== بخش کشورهای مقصد ======== */
     .section {
       padding: 3rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
       direction: rtl;
     }
+    .section h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #d4af37;
+      text-align: center;
+    }
     .country-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
     }
     .country-box {
       background-color: #1f1f1f;
       padding: 1.5rem;
       border-radius: 16px;
       border: 1px solid #2a2a2a;
-      transition: transform 0.3s ease;
-      will-change: transform;
+      transition: transform 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
     }
     .country-box:hover {
       transform: translateY(-4px);
       border-color: #d4af37;
     }
+    .country-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .country-box h3 span {
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      color: #d4af37;
+    }
+    .country-box p {
+      margin: 0;
+      font-size: 1rem;
+      color: #bbbbbb;
+    }
     .details {
       display: none;
-      font-size: 0.9rem;
-      color: #bbb;
       margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
       line-height: 1.6;
+    }
+    .country-box[aria-expanded="true"] .details {
+      display: block;
+    }
+
+    /* ======== بخش ورود / ثبت‌نام و فرم مشاوره ======== */
+    .form-container {
+      background-color: #1a1a1a;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 100%;
+    }
+    .form-container h2 {
+      text-align: center;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
     }
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
     }
     label {
       font-weight: 600;
-      margin-bottom: 0.3rem;
       color: #d4af37;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
     }
     input, textarea {
-      padding: 1rem;
+      padding: 0.9rem;
       border-radius: 10px;
       border: 1px solid #333;
       background-color: #2a2a2a;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    textarea {
+      resize: vertical;
     }
     button {
       background-color: #d4af37;
       color: #0f0f0f;
       border: none;
-      padding: 1rem;
+      padding: 0.9rem;
       border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      width: 100%;
     }
     button:hover:not(:disabled) {
       background-color: #c89e2b;
@@ -124,6 +198,19 @@
       opacity: 0.6;
       cursor: not-allowed;
     }
+    .form-status {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .form-status.error {
+      color: #ff6b6b;
+    }
+    .form-status.success {
+      color: #4caf50;
+    }
+
+    /* ======== فوتر ======== */
     footer {
       background-color: #0f0f0f;
       padding: 3rem 1rem 2rem;
@@ -149,25 +236,88 @@
       transform: scale(1.1);
       filter: brightness(1.2) contrast(1.2);
     }
+
+    /* ======== ریسپانسیو برای موبایل ======== */
     @media (max-width: 600px) {
+      /* هدر موبایل: ستونی و منو در مرکز */
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.8rem 1rem;
+      }
+      header img {
+        max-width: 100px; /* لوگوی کوچک‌تر */
+        margin-bottom: 0.8rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: center;
+      }
+      nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+      }
+
+      /* Hero موبایل: فونت و ارتفاع کمتر */
+      .hero {
+        min-height: 150px;
+        padding: 0 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      /* کشورهای مقصد موبایل: ستون واحد */
+      .section {
+        padding: 2rem 0.5rem;
+      }
+      .section h2 {
+        font-size: 1.6rem;
+      }
       .country-grid {
         grid-template-columns: 1fr;
       }
+      .country-box {
+        padding: 1rem;
+      }
+      .country-box h3 {
+        font-size: 1.2rem;
+      }
+      .country-box p {
+        font-size: 0.9rem;
+      }
+      .details {
+        font-size: 0.85rem;
+      }
+
+      /* فرم‌ها موبایل: عرض کامل و فاصله کم */
+      .form-container {
+        width: 90%;
+        padding: 1.2rem;
+        margin: 1.5rem auto;
+      }
+      .form-container h2 {
+        font-size: 1.4rem;
+      }
+      label {
+        font-size: 0.9rem;
+      }
+      input, textarea {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+      button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+
+      /* فوتر موبایل: آیکن‌ها کوچکتر */
       .social-icons a img {
         width: 32px;
         height: 32px;
       }
-    }
-    .form-status {
-      margin-top: 1.5rem;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-    .form-status.error {
-      color: #ff6b6b;
-    }
-    .form-status.success {
-      color: #4caf50;
     }
   </style>
 </head>
@@ -183,7 +333,7 @@
     </nav>
   </header>
 
-  <!-- بخش hero با متن انگلیسی -->
+  <!-- بخش Hero با متن انگلیسی -->
   <section class="hero">
     <h1>Your Journey Begins</h1>
   </section>
@@ -194,60 +344,60 @@
     <div class="country-grid">
       <!-- ایتالیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="italy" onclick="toggleDetails('italy')" onkeypress="if(event.key==='Enter') toggleDetails('italy')">
-        <h3><span style="color:#d4af37">IT</span> ایتالیا</h3>
+        <h3><span>IT</span> ایتالیا</h3>
         <p>شهریهٔ پایین، بورسیهٔ استانی، زندگی مقرون‌به‌صرفه.</p>
         <div id="italy" class="details">
           <ul>
             <li>دانشگاه‌های دولتی: شهریهٔ سالانه حدود ۲۰۰–۳۰۰ یورو (برای دانشجویان اتحادیهٔ اروپا؛ خارجی‌ها تا ۱۰۰۰ یورو).</li>
             <li>بورسیه‌های منطقه‌ای (بورسیهٔ استانی) برای دانشجویان ممتاز خارجی تا پوشش کامل هزینه‌ها.</li>
             <li>هزینهٔ زندگی در شهرهای متوسط: حدود ۶۰۰–۸۰۰ یورو در ماه.</li>
-            <li>بسیاری از دوره‌ها به زبان ایتالیایی هستند؛ اما در بعضی دانشگاه‌ها می‌توان رشته‌های انگلیسی‌زبان هم پیدا کرد (به‌ویژه مقطع کارشناسی ارشد).</li>
-            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته با دستمزد ساعتی بین ۷–۹ یورو.</li>
+            <li>دوره‌های انگلیسی‌زبان محدود و عمدتاً در مقطع ارشد.</li>
+            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته با دستمزد ۷–۹ یورو.</li>
           </ul>
         </div>
       </div>
 
       <!-- فرانسه -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="france" onclick="toggleDetails('france')" onkeypress="if(event.key==='Enter') toggleDetails('france')">
-        <h3><span style="color:#d4af37">FR</span> فرانسه</h3>
+        <h3><span>FR</span> فرانسه</h3>
         <p>شهریهٔ دولتی کم، کیفیت آموزشی بالا، کار دانشجویی.</p>
         <div id="france" class="details">
           <ul>
-            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۲۷۰ یورو در سال (برای مقطع کارشناسی؛ ارشد و دکترا کمی بیشتر).</li>
-            <li>بورسیهٔ Eiffel برای مقطع ارشد و دکترا (تا ۱۲۰۰ یورو ماهانه).</li>
-            <li>هزینهٔ زندگی در شهرهای بزرگ (مثلاً پاریس): ۹۰۰–۱۱۰۰ یورو در ماه؛ در شهرهای کوچک‌تر حدود ۷۰۰–۸۰۰ یورو.</li>
-            <li>بیشتر دوره‌ها به زبان فرانسوی هستند؛ اما بیش از ۴۰۰ برنامهٔ انگلیسی‌زبان در مقاطع ارشد و دکترا وجود دارد.</li>
-            <li>امکان کار پاره‌وقت تا ۲۰ ساعت در هفته؛ حقوق ساعتی حدود ۱۰–۱۲ یورو.</li>
+            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۲۷۰ یورو در سال (کارشناسی؛ ارشد و دکترا کمی بیشتر).</li>
+            <li>بورسیهٔ Eiffel برای ارشد و دکترا (تا ۱۲۰۰ یورو ماهانه).</li>
+            <li>هزینهٔ زندگی در پاریس: ۹۰۰–۱۱۰۰ یورو؛ شهرهای کوچک‌تر: ۷۰۰–۸۰۰ یورو.</li>
+            <li>برنامه‌های انگلیسی‌زبان بیشتر در مقاطع ارشد و دکترا (بیش از ۴۰۰ برنامه).</li>
+            <li>امکان کار پاره‌وقت ۲۰ ساعت در هفته؛ حقوق ۱۰–۱۲ یورو ساعتی.</li>
           </ul>
         </div>
       </div>
 
       <!-- هلند -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="netherlands" onclick="toggleDetails('netherlands')" onkeypress="if(event.key==='Enter') toggleDetails('netherlands')">
-        <h3><span style="color:#d4af37">NL</span> هلند</h3>
+        <h3><span>NL</span> هلند</h3>
         <p>برنامه‌های انگلیسی‌زبان، بازار کار قوی، مهاجرپذیر.</p>
         <div id="netherlands" class="details">
           <ul>
-            <li>شهریهٔ مقطع کارشناسی (بین‌المللی): حدود ۶۰۰۰–۱۰,۰۰۰ یورو در سال؛ کارشناسی ارشد: ۸۰۰۰–۱۵,۰۰۰ یورو.</li>
-            <li>بیش از ۲۵۰۰ برنامهٔ انگلیسی‌زبان در تمامی مقاطع.</li>
-            <li>هزینهٔ زندگی در شهرهای بزرگ (آمستردام/روتردام): ۹۰۰–۱۲۰۰ یورو در ماه؛ در شهرهای متوسط: ۷۰۰–۹۰۰ یورو.</li>
-            <li>با فارغ‌التحصیلی از دانشگاه، ویزای کاری ۱۲ ماهه دریافت می‌شود تا بتوانید در هلند شغل مناسب پیدا کنید.</li>
-            <li>امکان کار دانشجویی تا ۱۶–۱۸ ساعت در هفته؛ حقوق ساعتی حدود ۱۰–۱۱ یورو.</li>
+            <li>شهریهٔ کارشناسی (بین‌المللی): ۶۰۰۰–۱۰,۰۰۰ یورو؛ ارشد: ۸۰۰۰–۱۵,۰۰۰ یورو.</li>
+            <li>بیش از ۲۵۰۰ برنامهٔ انگلیسی‌زبان در همه مقاطع.</li>
+            <li>هزینهٔ زندگی در آمستردام/روتردام: ۹۰۰–۱۲۰۰ یورو؛ شهرهای متوسط: ۷۰۰–۹۰۰ یورو.</li>
+            <li>ویزای کاری ۱۲ ماهه پس از فارغ‌التحصیلی برای یافتن شغل.</li>
+            <li>کار دانشجویی ۱۶–۱۸ ساعت در هفته؛ حقوق ۱۰–۱۱ یورو ساعتی.</li>
           </ul>
         </div>
       </div>
 
       <!-- اسپانیا -->
       <div class="country-box" tabindex="0" role="button" aria-expanded="false" aria-controls="spain" onclick="toggleDetails('spain')" onkeypress="if(event.key==='Enter') toggleDetails('spain')">
-        <h3><span style="color:#d4af37">ES</span> اسپانیا</h3>
+        <h3><span>ES</span> اسپانیا</h3>
         <p>شهریهٔ پایین، زندگی باکیفیت، بورس‌های Erasmus +.</p>
         <div id="spain" class="details">
           <ul>
-            <li>شهریهٔ دانشگاه‌های دولتی: حدود ۱۲۰۰–۱۵۰۰ یورو در سال برای مقطع کارشناسی؛ کارشناسی ارشد: ۱۵۰۰–۲۰۰۰ یورو.</li>
-            <li>امکان شرکت در برنامهٔ Erasmus + برای کاهش هزینهٔ تحصیل و زندگی.</li>
-            <li>هزینهٔ زندگی در شهرهای بزرگ (مادرید/بارسلونا): ۸۰۰–۹۰۰ یورو در ماه؛ در شهرهای متوسط/کوچک: ۶۰۰–۷۰۰ یورو.</li>
-            <li>بیشتر دوره‌ها به زبان اسپانیایی هستند؛ اما حدود ۱۵۰ برنامهٔ انگلیسی‌زبان در مقطع ارشد وجود دارد.</li>
-            <li>امکان کار دانشجویی تا ۲۰ ساعت در هفته؛ حقوق ساعتی حدود ۷–۸ یورو.</li>
+            <li>شهریهٔ دولتی: کارشناسی ۱۲۰۰–۱۵۰۰ یورو؛ ارشد: ۱۵۰۰–۲۰۰۰ یورو.</li>
+            <li>شرکت در Erasmus + برای کاهش هزینهٔ تحصیل و زندگی.</li>
+            <li>هزینهٔ زندگی در مادرید/بارسلونا: ۸۰۰–۹۰۰ یورو؛ شهرهای متوسط/کوچک: ۶۰۰–۷۰۰ یورو.</li>
+            <li>دوره‌های انگلیسی‌زبان محدود در ارشد (حدود ۱۵۰ برنامه).</li>
+            <li>کار دانشجویی ۲۰ ساعت در هفته؛ حقوق ۷–۸ یورو ساعتی.</li>
           </ul>
         </div>
       </div>
@@ -255,8 +405,8 @@
   </section>
 
   <!-- بخش ورود/ثبت‌نام -->
-  <section class="section" id="login" style="max-width: 400px; background-color: #1a1a1a; margin: 2rem auto; padding: 2rem; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center; color:#d4af37; margin-bottom:1.5rem;">ورود یا ثبت‌نام</h2>
+  <section class="form-container" id="login">
+    <h2>ورود یا ثبت‌نام</h2>
     <form id="loginForm" aria-label="فرم ورود یا ثبت‌نام">
       <label for="loginEmail">ایمیل</label>
       <input type="email" id="loginEmail" placeholder="ایمیل" required aria-required="true" />
@@ -268,8 +418,8 @@
   </section>
 
   <!-- بخش فرم مشاوره رایگان -->
-  <section class="section contact" id="contact" style="max-width: 600px; margin: 4rem auto; background-color: #1a1a1a; padding: 2.5rem; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.4);" aria-label="فرم درخواست مشاوره رایگان">
-    <h2 style="text-align: center; color: #d4af37; margin-bottom: 2.5rem; font-size: 2rem; font-weight: 700;">درخواست مشاوره رایگان</h2>
+  <section class="form-container contact" id="contact" aria-label="فرم درخواست مشاوره رایگان">
+    <h2>درخواست مشاوره رایگان</h2>
     <form id="contactForm" aria-describedby="statusMessage" novalidate>
       <label for="name">نام کامل شما</label>
       <input type="text" id="name" name="name" placeholder="نام کامل شما" required aria-required="true" />
@@ -305,16 +455,15 @@
     </div>
   </footer>
 
-  <!-- اسکریپت‌های firebase و JS -->
+  <!-- اسکریپت‌های Firebase و JS -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script>
-    // نمایش/مخفی‌سازی جزئیات هر کشور
+    // تابع نمایش/مخفی‌سازی جزئیات
     function toggleDetails(id) {
       const el = document.getElementById(id);
       const expanded = el.style.display === "block";
       el.style.display = expanded ? "none" : "block";
-
       const btn = document.querySelector(`[aria-controls="${id}"]`);
       if (btn) btn.setAttribute("aria-expanded", !expanded);
     }
@@ -329,7 +478,6 @@
       appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
       measurementId: "G-N7R0N1JQVR"
     };
-
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
@@ -337,17 +485,14 @@
     const loginForm = document.getElementById("loginForm");
     const loginStatus = document.getElementById("loginStatus");
     const loginBtn = document.getElementById("loginBtn");
-
     loginForm.addEventListener("submit", function(e) {
       e.preventDefault();
       loginStatus.textContent = "";
       loginStatus.className = "form-status";
       loginBtn.disabled = true;
       loginBtn.textContent = "در حال پردازش...";
-
       const email = document.getElementById("loginEmail").value;
       const password = document.getElementById("loginPassword").value;
-
       auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
         return auth.signInWithEmailAndPassword(email, password)
           .then(() => {
@@ -383,18 +528,15 @@
     const contactForm = document.getElementById("contactForm");
     const statusMessage = document.getElementById("statusMessage");
     const submitBtn = document.getElementById("submitBtn");
-
     contactForm.addEventListener("submit", function(e) {
       e.preventDefault();
       statusMessage.textContent = "";
       statusMessage.className = "form-status";
       submitBtn.disabled = true;
       submitBtn.textContent = "در حال ارسال...";
-
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const message = document.getElementById("message").value.trim();
-
       const phoneRegex = /^09\d{9}$/;
       if (!name || !phone || !message) {
         statusMessage.textContent = "لطفاً همه فیلدها را پر کنید.";
@@ -410,7 +552,6 @@
         submitBtn.textContent = "ارسال درخواست";
         return;
       }
-
       // TODO: ارسال به سرور یا firebase
       setTimeout(() => {
         statusMessage.textContent = "درخواست شما با موفقیت ارسال شد ✅";
