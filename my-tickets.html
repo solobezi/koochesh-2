@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تیکت‌های من | Koochesh Away</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+    header a {
+      color: #bbbbbb;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+    }
+    header a:hover { color: #d4af37; }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .ticket-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ticket-item {
+      background-color: #1e1e1e;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #333;
+    }
+    .ticket-item h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #d4af37;
+    }
+    .ticket-item p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+    .ticket-item a {
+      background-color: #d4af37;
+      color: #0f0f0f;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    .ticket-item a:hover {
+      background-color: #c89e2b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="dashboard.html">← بازگشت به داشبورد</a>
+    <h1>تیکت‌های من</h1>
+  </header>
+  <div class="container">
+    <ul class="ticket-list">
+      <!--
+        اینجا با جاوااسکریپت از سرور فچ می‌کنید و چنین مواردی را اضافه می‌کنید:
+        <li class="ticket-item">
+          <div>
+            <h3>عنوان تیکت شماره #123</h3>
+            <p>وضعیت: در حال بررسی</p>
+          </div>
+          <a href="ticket-details.html?id=123">جزئیات</a>
+        </li>
+      -->
+      <li style="text-align:center; color:#bbb;">هیچ تیکتی وجود ندارد.</li>
+    </ul>
+  </div>
+  <!-- اسکریپت فچ و رندر لیست تیکت‌ها اینجا قرار می‌گیرد -->
+</body>
+</html>
