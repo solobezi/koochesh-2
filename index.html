@@ -3,271 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Koochesh Away | مهاجرت</title>
+
+  <!-- عنوان جدید برای سئو -->
+  <title>کوچش‌آوی | مشاوره مهاجرت به ایتالیا، فرانسه، هلند و اسپانیا</title>
+
+  <!-- متا تگ‌های سئو -->
+  <meta name="description" content="خدمات حرفه‌ای مشاوره مهاجرت به ایتالیا، فرانسه، هلند و اسپانیا با کوچش‌آوی. راهنمایی مراحل و پیگیری پرونده‌ها" />
+  <meta name="keywords" content="مشاوره مهاجرت, مهاجرت ایتالیا, مهاجرت فرانسه, مهاجرت هلند, مهاجرت اسپانیا, کوچش‌آوی" />
+  <meta name="author" content="کوچش‌آوی" />
+
+  <!-- Open Graph برای اشتراک در شبکه‌های اجتماعی -->
+  <meta property="og:title" content="کوچش‌آوی | مشاوره مهاجرت" />
+  <meta property="og:description" content="مهاجرت آسان به ایتالیا، فرانسه، هلند و اسپانیا با خدمات حرفه‌ای کوچش‌آوی." />
+  <!-- وقتی لوگو روی هاست قرار گرفت، آدرس را اینجا درج کنید -->
+  <!-- <meta property="og:image" content="https://yourdomain.com/path/to/logo.jpg" /> -->
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- فونت و استایل‌ها -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --main-gold: #d4af37;
+      --hover-gold: #c89e2b;
+      --bg-dark: #0f0f0f;
+      --bg-light: #1a1a1a;
+      --text-light: #f1f1f1;
+      --text-muted: #bbbbbb;
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background-color: #0f0f0f;
-      color: #f1f1f1;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #0f0f0f;
-      border-bottom: 1px solid #222;
-    }
-    header img {
-      max-width: 160px;
-      height: auto;
-    }
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #d4af37;
-    }
-    .hero {
       text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(to bottom right, #1a1a1a, #111);
-      border-bottom: 1px solid #333;
+      padding: 3rem 2rem;
+      background: radial-gradient(circle at center, #1c1c1c, #0f0f0f);
+    }
+    /* لوگو موقتاً حذف شده؛ در هاست تازه آن را اضافه کنید */
+    /* header img {
+      max-height: 120px;
+      margin-bottom: 1rem;
+    } */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(to right, #1b1b1b, #000);
     }
     .hero h1 {
       font-size: 2.5rem;
-      color: #d4af37;
+      color: var(--main-gold);
+      margin-bottom: 1rem;
+      font-weight: 800;
     }
     .hero p {
-      color: #bbbbbb;
-      margin-top: 0.5rem;
+      max-width: 620px;
       font-size: 1.2rem;
+      line-height: 2;
+      opacity: 0.9;
     }
     .section {
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    .section h2 {
+      text-align: center;
+      color: var(--main-gold);
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
     .country-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
     }
     .country-box {
-      background-color: #1f1f1f;
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 1px solid #2a2a2a;
-      transition: transform 0.3s ease;
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      flex: 0 1 240px;
+      text-align: right;
     }
-    .country-box:hover {
-      transform: translateY(-4px);
-      border-color: #d4af37;
+    .country-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
+    .country-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
     }
     input, textarea {
+      width: 100%;
       padding: 1rem;
+      background: #121212;
+      border: 1px solid #2a2a2a;
+      color: #eee;
       border-radius: 10px;
-      border: 1px solid #333;
-      background-color: #2a2a2a;
-      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
     button {
-      background-color: #d4af37;
-      color: #0f0f0f;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background: linear-gradient(to left, var(--main-gold), var(--hover-gold));
+      color: #000;
       border: none;
-      padding: 1rem;
       border-radius: 10px;
-      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      width: 100%;
     }
     button:hover {
-      background-color: #c89e2b;
+      transform: scale(1.05);
+      background: var(--hover-gold);
     }
     footer {
-      background-color: #0f0f0f;
-      padding: 3rem 1rem 2rem;
+      background: #0c0c0c;
+      color: #aaa;
       text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.95rem;
       border-top: 1px solid #222;
     }
-    .social-icons {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: grayscale(20%) brightness(0.95) contrast(1.05);
-    }
-    .social-icons img:hover {
-      transform: scale(1.1);
-      filter: brightness(1.2) contrast(1.2);
-    }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem !important;
       }
       .hero p {
-        font-size: 1rem;
+        font-size: 1rem !important;
       }
-      .country-grid {
-        grid-template-columns: 1fr;
+      /* اگر بخواهید اندازه لوگو تغییر کند، می‌توانید اینجا تنظیم کنید */
+      /* header img {
+        max-height: 100px !important;
+      } */
+    }
+    @media (max-width: 600px) {
+      .country-box {
+        flex: 0 1 100%;
+      }
+      footer > div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+      }
+      .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
       }
       .social-icons img {
-        width: 32px;
-        height: 32px;
+        height: 30px;
+        width: 30px;
+      }
+      footer div img {
+        margin: auto;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/1tmWwX8B/koochesh-logo-1.png" alt="koochesh-logo-1" />
-    <nav>
-      <a href="#countries">کشورها</a>
-      <a href="#contact">مشاوره</a>
-      <a href="#login">ورود</a>
-    </nav>
+    <!-- لوگو موقتاً حذف شد. هنگام آپلود فایل‌ها روی هاست، مسیر صحیح لوگو را اینجا اضافه کنید -->
+    <!-- <img src="https://yourdomain.com/images/logo.png" alt="لوگوی کوچش‌آوی" /> -->
   </header>
+
   <section class="hero">
     <h1>با خیال راحت مهاجرت کن</h1>
-    <p>کوچ آغاز ماجراست ...</p>
+    <p>کوچ آغاز ماجراست و ما در تمام مسیر کنارتان خواهیم بود. از مراحل اولیهٔ مشاوره تا رسیدن به مقصد؛ همراه شما هستیم.</p>
   </section>
+
   <section class="section" id="countries">
     <h2>کشورهای مقصد</h2>
     <div class="country-grid">
-      <div class="country-box" onclick="toggleDetails('italy')">
-        <h3><span style="color:#d4af37">IT</span> ایتالیا</h3>
-        <p>تحصیل رایگان، زندگی مقرون‌به‌صرفه، بورسیه استانی.</p>
-        <div id="italy" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">ایتالیا با امکان دریافت بورسیه استانی و هزینه‌های پایین زندگی، یکی از گزینه‌های محبوب برای دانشجویان خارجی است...</div>
+      <!-- ایتالیا -->
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇮🇹 ایتالیا</h3>
+        <p>
+          • <strong>تحصیل رایگان:</strong> دانشگاه‌های دولتی ایتالیا برای دانشجویان بین‌المللی، به‌خصوص در مقطع لیسانس، شهریهٔ بسیار کمی یا حتی رایگان دارند.
+          برخی برنامه‌های مستر و دکتری نیز با شهریه پایین یا امکانات بورسیه همراه هستند.
+        </p>
+        <p>
+          • <strong>زندگی مقرون‌به‌صرفه:</strong> شهرهای کوچکتر مثل بولونیا، پادووا یا تورین هزینه‌های زندگی (اجاره، خوراک و حمل‌ونقل) به مراتب کمتر از شهرهای بزرگ مثل میلان یا رم است.
+          شما می‌توانید با مدیریت درست، ماهانه حدود ۵۰۰ تا ۷۰۰ یورو هزینه کنید.
+        </p>
+        <p>
+          • <strong>بورسیه‌های استانی:</strong> هر استان (Region) معمولاً بورسیه‌های مخصوص دانشجویان خارج از اتحادیه اروپا ارائه می‌دهد.
+          این بورسیه‌ها شامل معافیت از شهریه، خوابگاه یا کمک هزینهٔ زندگی هستند. ما مرحله‌به‌مرحله برای ثبت درخواست بورسیه همراه شما خواهیم بود.
+        </p>
       </div>
-      <div class="country-box" onclick="toggleDetails('france')">
-        <h3><span style="color:#d4af37">FR</span> فرانسه</h3>
-        <p>آموزش باکیفیت، هزینه پایین‌تر، کار دانشجویی.</p>
-        <div id="france" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">فرانسه با داشتن دانشگاه‌های دولتی با شهریه پایین...</div>
+
+      <!-- فرانسه -->
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇫🇷 فرانسه</h3>
+        <p>
+          • <strong>کیفیت بالای دانشگاه‌ها:</strong> دانشگاه‌ها و مؤسسات آموزش عالی فرانسه در رتبه‌بندی جهانی جایگاه مناسبی دارند.
+          رشته‌های مهندسی، هنر، علوم انسانی و مدیریت در سطح جهانی شناخته شده‌اند.
+        </p>
+        <p>
+          • <strong>هزینهٔ پایین‌تر نسبت به سایر کشورهای اروپایی:</strong> شهریهٔ دانشگاه‌های دولتی برای مقطع لیسانس معمولاً زیر ۲۰۰ یورو در سال است.
+          هزینهٔ زندگی در پاریس کمی بالاتر است، ولی در شهرهای متوسط مانند لیون، تулуژ یا نانت می‌توان با حدود ۷۰۰ تا ۸۰۰ یورو در ماه زندگی کرد.
+        </p>
+        <p>
+          • <strong>کار دانشجویی:</strong> دانشجویان خارجی مجاز به کار پاره‌وقت (حداکثر ۲۰ ساعت در هفته) با دستمزد ساعتی حدود ۱۰ یورو هستند.
+          این موضوع به تأمین بخشی از هزینه‌های زندگی کمک می‌کند. مراحل دریافت مجوز کار توسط ما پیگیری می‌شود.
+        </p>
       </div>
-      <div class="country-box" onclick="toggleDetails('netherlands')">
-        <h3><span style="color:#d4af37">NL</span> هلند</h3>
-        <p>تحصیل به زبان انگلیسی، بازار کار قوی، مهاجرپذیر.</p>
-        <div id="netherlands" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">هلند یکی از معدود کشورهای اروپایی‌ست که اکثر برنامه‌ها...</div>
+
+      <!-- هلند -->
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇳🇱 هلند</h3>
+        <p>
+          • <strong>تحصیل به زبان انگلیسی:</strong> بیش از ۲۲۰۰ برنامهٔ کارشناسی‌ارشد و دکتری به زبان انگلیسی تدریس می‌شوند.
+          دانشجویان بدون دانستن هلندی هم می‌توانند اکثر رشته‌ها را انتخاب کنند.
+        </p>
+        <p>
+          • <strong>بازار کار قوی و فرصت‌های کارآموزی:</strong> کشور هلند بازار کار پویایی در حوزه‌های فناوری اطلاعات، مهندسی، مدیریت و طراحی دارد.
+          دانشجویان می‌توانند همزمان با تحصیل تا ۱۶ ساعت در هفته کار کنند و پس از فارغ‌التحصیلی، اجازهٔ اقامت شش‌ماهه برای یافتن شغل دریافت می‌کنند.
+        </p>
+        <p>
+          • <strong>مهاجرپذیری و سیاست‌های آسان:</strong> سیستم امتیازبندی برای نیروی کار ماهر (Highly Skilled Migrant) در هلند ساده است؛
+          اگر شما پیشنهاد شغلی داشته باشید، می‌توانید ویزای کاری گرفته و خانواده را هم همراه خود ببرید.
+        </p>
       </div>
-      <div class="country-box" onclick="toggleDetails('spain')">
-        <h3><span style="color:#d4af37">ES</span> اسپانیا</h3>
-        <p>تحصیل در دانشگاه‌های معتبر، زندگی باکیفیت.</p>
-        <div id="spain" class="details" style="display:none; font-size: 0.9rem; color:#bbb; margin-top:1rem;">اسپانیا با اقلیم مطلوب، کیفیت زندگی بالا...</div>
+
+      <!-- اسپانیا -->
+      <div class="country-box">
+        <h3 style="color: var(--main-gold);">🇪🇸 اسپانیا</h3>
+        <p>
+          • <strong>دانشگاه‌های معتبر:</strong> دانشگاه‌های بارسلونا، مادرید، گرانادا و والنسیا در رنکینگ جهانی جایگاه مناسبی دارند.
+          ترکیبی از آموزش باکیفیت و شهریهٔ نسبتا پایین (بین ۷۰۰ تا ۲۵۰۰ یورو سالانه) را ارائه می‌دهند.
+        </p>
+        <p>
+          • <strong>سبک زندگی مدیترانه‌ای:</strong> هزینهٔ زندگی در مقایسه با سایر کشورهای مرکزی اروپا کمتر است.
+          آب‌وهوای مطبوع، فرهنگ مهمان‌نواز و خوراکی‌های محلی باعث شده تا دانشجویان تجربهٔ زندگی راحت و لذت‌بخشی داشته باشند.
+        </p>
+        <p>
+          • <strong>فرآیند اقامت و ویزای دانشجویی:</strong> مراحل دریافت ویزای دانشجویی در اسپانیا نسبتاً سریع انجام می‌شود و پس از ورود به کشور،
+          اجازهٔ اقامت (NIE) را دریافت خواهید کرد که امکان کار پاره‌وقت (حداکثر ۲۰ ساعت در هفته) را نیز فراهم می‌کند.
+        </p>
       </div>
     </div>
   </section>
-  <section class="section" id="login" style="max-width: 400px; background-color: #1a1a1a; margin: 2rem auto; padding: 2rem; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center; color:#d4af37; margin-bottom:1.5rem;">ورود یا ثبت‌نام</h2>
-    <form id="loginForm">
-      <input type="email" id="loginEmail" placeholder="ایمیل" required />
-      <input type="password" id="loginPassword" placeholder="رمز عبور" required />
-      <button type="submit">ورود / ثبت‌نام</button>
-    </form>
-    <div id="loginStatus" class="form-status" style="margin-top: 1rem; text-align:center; font-size: 0.9rem; color: #ff6b6b;"></div>
-  </section>
-  <section class="section contact" id="contact" style="max-width: 600px; margin: 4rem auto; background-color: #1a1a1a; padding: 2.5rem; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.4);">
-    <h2 style="text-align: center; color: #d4af37; margin-bottom: 2.5rem; font-size: 2rem; font-weight: 700;">درخواست مشاوره رایگان</h2>
-    <form id="form" style="display: flex; flex-direction: column; gap: 1.5rem;">
-      <input type="text" id="name" name="name" placeholder="نام کامل شما" required />
-      <input type="tel" id="phone" name="phone" placeholder="شماره تماس (مثلاً 09123456789)" required />
-      <textarea id="message" name="message" rows="4" placeholder="چه کمکی از ما می‌خوای؟" required></textarea>
+
+  <section class="section contact" id="contact">
+    <h2>فرم درخواست مشاوره</h2>
+    <form id="form" action="#" method="POST">
+      <input type="text" id="name" name="name" placeholder="نام شما" required />
+      <!-- برای اعتبارسنجی تلفن می‌توانید pattern اضافه کنید -->
+      <input type="tel" id="phone" name="phone" placeholder="شماره تماس (مثلاً 09123456789)" pattern="[0-9]{11}" title="لطفاً 11 رقم وارد کنید" required />
+      <textarea id="message" name="message" rows="4" placeholder="پیام شما..." required></textarea>
       <button type="submit" id="submitBtn">ارسال درخواست</button>
     </form>
-    <div id="status" class="form-status" style="margin-top: 1.5rem; text-align:center; font-size: 0.95rem; color: #ff6b6b;"></div>
+    <div id="status" style="margin-top: 1rem; font-size: 0.95rem; text-align: center;"></div>
   </section>
+
   <footer>
-    <div class="footer-wrapper">
-      <div class="footer-contact">
-        <p>تمامی حقوق محفوظ است برای Koochesh Away © 2025</p>
+    <div style="max-width: 1100px; margin: auto; padding: 2rem 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: flex-start; gap: 2rem; line-height: 1.8; font-size: 0.95rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; text-align: right;">
+        <p style="font-size: 0.95rem; margin: 0;">تمامی حقوق محفوظ است برای Kooچش‌آوی © 2025</p>
+        <p style="font-size: 0.95rem; margin: 0;">شماره تماس: -</p>
+        <p style="font-size: 0.95rem; margin: 0;">آدرس دفتر: -</p>
       </div>
-      <div class="social-icons">
-        <a href="https://t.me/koochesh_migration" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
-        </a>
-        <a href="https://www.youtube.com/@koochesh" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
-        </a>
-        <a href="https://wa.me/989123456789" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-        </a>
-        <a href="https://instagram.com/koochesh" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" />
-        </a>
+      <div style="display: flex; gap: 14px; align-items: center; flex-direction: row; justify-content: center;" class="social-icons">
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="height: 28px; width: 28px; filter: invert(100%) sepia(0%) saturate(0%) brightness(200%) contrast(100%);"></a>
+        <a href="#" target="_blank" style="display: inline-block;"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" style="height: 28px; width: 28px; filter: invert(100%) sepia(0%) saturate(0%) brightness(200%) contrast(100%);"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="height: 28px; width: 28px; filter: invert(100%) sepia(0%) saturate(0%) brightness(200%) contrast(100%);"></a>
       </div>
     </div>
   </footer>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script>
-    function toggleDetails(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "none" ? "block" : "none";
-    }
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCSDywUnvq3LYyyR6X89n8oMHZxKg_mWIg",
-      authDomain: "koochesh-b546b.firebaseapp.com",
-      projectId: "koochesh-b546b",
-      storageBucket: "koochesh-b546b.firebasestorage.app",
-      messagingSenderId: "91804302926",
-      appId: "1:91804302926:web:aac922baabd6ccfa8f8d1f",
-      measurementId: "G-N7R0N1JQVR"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-
-      auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          document.getElementById("loginStatus").innerText = "ورود موفق 👌 در حال انتقال ...";
-          setTimeout(() => {
-            window.location.href = "dashboard.html";
-          }, 1500);
-        })
-        .catch((error) => {
-          if (error.code === 'auth/user-not-found') {
-            auth.createUserWithEmailAndPassword(email, password)
-              .then((userCredential) => {
-                document.getElementById("loginStatus").innerText = "ثبت‌نام موفق 👌 در حال انتقال ...";
-                setTimeout(() => {
-                  window.location.href = "dashboard.html";
-                }, 1500);
-              })
-              .catch((signupError) => {
-                document.getElementById("loginStatus").innerText = "❌ " + signupError.message;
-              });
-          } else {
-            document.getElementById("loginStatus").innerText = "❌ " + error.message;
-          }
-        });
-    });
-  </script>
-  <script src="form.js"></script>
+  <!-- لینک به فایل JS جداگانه -->
+  <script src="js/form.js"></script>
 </body>
 </html>
